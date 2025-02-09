@@ -4,6 +4,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
+use App\Events\JobPosted;
 
 // Route::get('/', function () {
 //     return view('home');
@@ -19,6 +20,11 @@ Route::view('/', 'home');
 //     Route::patch('/jobs/{job}', 'update');
 //     Route::delete('/jobs/{job}', 'destroy');
 // });
+
+Route::get('test',function()
+{
+    return new JobPosted();
+});
 
 Route::get('/jobs', [JobController::class, 'index']);
 
